@@ -1,0 +1,28 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: note
+  datasource:
+    url: jdbc:mysql://localhost:3306/db1?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+    username: root
+    password: qpzm056511
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 5
+      max-active: 20
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false  # 开发时关闭缓存
+    mode: HTML
+    encoding: UTF-8
+
+mybatis-plus:
+    mapper-locations: classpath:mapper/**/*.xml
+    type-aliases-package: com.example.note.entities
+    configuration:
+      map-underscore-to-camel-case: true
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
